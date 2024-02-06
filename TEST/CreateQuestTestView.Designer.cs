@@ -233,6 +233,7 @@
             QuestNumber.Size = new Size(60, 21);
             QuestNumber.TabIndex = 28;
             QuestNumber.Text = "%QN%";
+            QuestNumber.Click += QuestNumber_Click;
             // 
             // nextBtn
             // 

@@ -1,9 +1,13 @@
 using System.Runtime.InteropServices;
+using static System.Net.Mime.MediaTypeNames;
+using System.Text.Json;
 
 namespace TEST
 {
     public partial class MainView : Form
     {
+        Testy test;
+        Testy testForPass;
         public MainView()
         {
             InitializeComponent();
@@ -13,7 +17,19 @@ namespace TEST
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (testname.Text == "Не выбран")
+            {
+                MessageBox.Show("Вы не выбрали тест!", "Выберите тест!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                PassTestView PTV = new PassTestView(this);
+                PTV.Show();
+                this.Hide();
+                PTV.getTest(testForPass);
 
+            }
         }
         private void button2_Click(object sender, EventArgs e)
         {
@@ -28,7 +44,14 @@ namespace TEST
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            string JoinString;
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Json|*.json";
+            ofd.Title = "Открыть Тест";
+            ofd.ShowDialog();
+            testForPass = JsonSerializer.Deserialize<Testy>(ofd.OpenFile());
+            testForPass.setTestName(ofd.SafeFileName);
+            testname.Text = ofd.SafeFileName;
         }
 
         private void button5_Click(object sender, EventArgs e)
