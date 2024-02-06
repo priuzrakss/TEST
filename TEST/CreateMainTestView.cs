@@ -53,10 +53,10 @@ namespace TEST
             if (testName.Text != "" && numberOfQuests.Text != "" && result == true)
             {
                 Testy test = new Testy();
-                CreateQuestTestView CTQVM = new CreateQuestTestView();
+                CreateQuestTestView CTQVM = new CreateQuestTestView(mainView);
                 string text = numberOfQuests.Text;
                 int count = Int32.Parse(text);
-                CTQVM.getTest(testName.Text, count);
+                CTQVM.getTest(test, testName.Text, count);
                 CTQVM.Show();
                 this.Close();
 

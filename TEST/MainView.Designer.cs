@@ -145,7 +145,7 @@
             label2.BackColor = Color.FromArgb(0, 0, 0, 0);
             label2.Font = new Font("Segoe UI", 12F);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(3, 2);
+            label2.Location = new Point(0, 0);
             label2.Name = "label2";
             label2.Size = new Size(113, 21);
             label2.TabIndex = 7;
