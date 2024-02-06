@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,11 +15,13 @@ namespace TEST
 {
     public partial class CreateMainTestView : Form
     {
+        public int numInd = 0;
         MainView mainView;
         public CreateMainTestView(MainView mv)
         {
             InitializeComponent();
             mainView = mv;
+            this.MouseDown += new MouseEventHandler(Form1_MouseDown);
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -50,7 +53,7 @@ namespace TEST
             {
                 MessageBox.Show("Вы ввели текстовые символы в количество вопросов", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            if (testName.Text != "" && numberOfQuests.Text != "" && result == true)
+            if (testName.Text != "" && numberOfQuests.Text != "" && result == true && numberOfQuests.Text != "0")
             {
                 Testy test = new Testy();
                 CreateQuestTestView CTQVM = new CreateQuestTestView(mainView);
@@ -66,12 +69,33 @@ namespace TEST
 
         private void minBtn_Click(object sender, EventArgs e)
         {
-
+            if (numInd > 0)
+            {
+                numInd--;
+                numberOfQuests.Text = numInd.ToString();
+            }
         }
 
         private void plsBtn_Click(object sender, EventArgs e)
         {
-
+            numInd++;
+            numberOfQuests.Text = numInd.ToString();
         }
+
+        void Form1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        [DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();
+        private const int WM_NCLBUTTONDOWN = 0xA1;
+        private const int HT_CAPTION = 0x2;
     }
 }
