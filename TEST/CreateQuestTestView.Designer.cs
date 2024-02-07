@@ -228,12 +228,11 @@
             QuestNumber.AutoSize = true;
             QuestNumber.Font = new Font("Segoe UI", 12F);
             QuestNumber.ForeColor = Color.White;
-            QuestNumber.Location = new Point(381, 299);
+            QuestNumber.Location = new Point(377, 306);
             QuestNumber.Name = "QuestNumber";
             QuestNumber.Size = new Size(60, 21);
             QuestNumber.TabIndex = 28;
             QuestNumber.Text = "%QN%";
-            QuestNumber.Click += QuestNumber_Click;
             // 
             // nextBtn
             // 
@@ -241,7 +240,7 @@
             nextBtn.FlatAppearance.BorderSize = 0;
             nextBtn.FlatStyle = FlatStyle.Flat;
             nextBtn.ForeColor = Color.White;
-            nextBtn.Location = new Point(450, 299);
+            nextBtn.Location = new Point(446, 306);
             nextBtn.Name = "nextBtn";
             nextBtn.Size = new Size(21, 23);
             nextBtn.TabIndex = 29;
@@ -255,7 +254,7 @@
             prevBtn.FlatAppearance.BorderSize = 0;
             prevBtn.FlatStyle = FlatStyle.Flat;
             prevBtn.ForeColor = Color.White;
-            prevBtn.Location = new Point(354, 299);
+            prevBtn.Location = new Point(350, 306);
             prevBtn.Name = "prevBtn";
             prevBtn.Size = new Size(21, 23);
             prevBtn.TabIndex = 30;

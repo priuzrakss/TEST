@@ -47,7 +47,7 @@ namespace TEST
                 this.Close();
                 mainView.Show();
             }
-
+            
         }
         private void button6_Click(object sender, EventArgs e)
         {
@@ -56,22 +56,45 @@ namespace TEST
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked) { is_anwser = 1; checkBox2.Checked = false; checkBox3.Checked = false; checkBox4.Checked = false; }
+            if (checkBox1.Checked) {
+                is_anwser = 1;
+                checkBox2.Checked = false;
+                checkBox3.Checked = false;
+                checkBox4.Checked = false;
+            }
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox2.Checked) { is_anwser = 2; checkBox1.Checked = false; checkBox3.Checked = false; checkBox4.Checked = false; }
+            if (checkBox2.Checked)
+            {
+                is_anwser = 2;
+                checkBox1.Checked = false;
+                checkBox3.Checked = false;
+                checkBox4.Checked = false;
+            }
         }
 
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox3.Checked) { is_anwser = 3; checkBox2.Checked = false; checkBox1.Checked = false; checkBox4.Checked = false; }
+            if (checkBox3.Checked)
+            {
+                is_anwser = 3;
+                checkBox2.Checked = false;
+                checkBox1.Checked = false;
+                checkBox4.Checked = false;
+            }
         }
 
         private void checkBox4_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox4.Checked) { is_anwser = 4; checkBox2.Checked = false; checkBox3.Checked = false; checkBox1.Checked = false; }
+            if (checkBox4.Checked)
+            {
+                is_anwser = 4;
+                checkBox2.Checked = false;
+                checkBox3.Checked = false;
+                checkBox1.Checked = false;
+            }
         }
 
         private void nextBtn_Click(object sender, EventArgs e)
@@ -117,7 +140,7 @@ namespace TEST
             if (checkBox4.Checked) { is_anwser = 4; }
 
 
-
+        
             else
             {
                 var result = MessageBox.Show("Сохранить тест?", "Достигнут последний вопрос", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -130,7 +153,7 @@ namespace TEST
                 {
                     this.Close();
                     mainView.Show();
-                }
+}
 
             }
         }
@@ -201,9 +224,6 @@ namespace TEST
         private const int WM_NCLBUTTONDOWN = 0xA1;
         private const int HT_CAPTION = 0x2;
 
-        private void QuestNumber_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

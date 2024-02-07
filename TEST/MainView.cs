@@ -33,17 +33,10 @@ namespace TEST
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            if (testname.Text == "Не выбран")
-            {
-                MessageBox.Show("Вы не выбрали тест!", "Выберите тест!",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
+            
                 CreateMainTestView CMTV = new CreateMainTestView(this);
                 CMTV.Show();
                 this.Hide();
-            }
         }
         private void button3_Click(object sender, EventArgs e)
         {
